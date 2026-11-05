@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--
+        This rule is applied to all users. The `user.allowed_app_ids` field (on res.users)
+        always contains the list of main menus a user is allowed to see.
+        This domain restricts visibility to sub-menus OR the main menus present in that list.
+        -->
+        <record id="rule_restrict_user_applications" model="ir.rule">
+            <field name="name">Restrict Applications based on User Groups</field>
+            <field name="model_id" ref="base.model_ir_ui_menu"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">['|', ('parent_id', '!=', False), ('id', 'in', user.allowed_app_ids.ids)]</field>
+        </record>
+    </data>
+</odoo>

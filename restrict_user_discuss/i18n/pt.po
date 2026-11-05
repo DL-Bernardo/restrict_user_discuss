@@ -1,0 +1,68 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* restrict_user_discuss
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-23 21:00+0000\n"
+"PO-Revision-Date: 2026-08-23 21:00+0000\n"
+"Last-Translator: Bernardo Vieira <bvieira@digitalub.ao>\n"
+"Language-Team: Portuguese (Angola) <suporte@digitalub.ao>\n"
+"Language: pt_AO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: restrict_user_discuss
+#: model:ir.module.category,name:restrict_user_discuss.module_category_app_access
+msgid "Application Access Control"
+msgstr "Controlo de Acesso a Aplicações"
+
+#. module: restrict_user_discuss
+#: model:ir.module.category,name:restrict_user_discuss.module_category_app_access
+#: model:ir.module.category,description:restrict_user_discuss.module_category_app_access
+msgid "User groups for controlling application visibility."
+msgstr "Grupos de utilizadores para controlo e restrição de visibilidade de aplicações."
+
+#. module: restrict_user_discuss
+#: model:res.groups,name:restrict_user_discuss.group_hide_modules_user
+msgid "Example: Restricted to Discuss"
+msgstr "Exemplo: Restrito ao Módulo de Conversas"
+
+#. module: restrict_user_discuss
+#: model:res.groups,comment:restrict_user_discuss.group_hide_modules_user
+msgid "This is an example group. Users in this group will only see the applications selected in the 'Visible Applications' field. By default, the Discuss app is selected."
+msgstr "Grupo de exemplo. Os utilizadores pertencentes a este grupo verão apenas as aplicações selecionadas no campo 'Aplicações Visíveis'. Por padrão, apenas a aplicação de Conversas está selecionada."
+
+#. module: restrict_user_discuss
+#: model:ir.model.fields,field_description:restrict_user_discuss.field_res_users__specific_visible_app_ids
+msgid "Specific Visible Applications"
+msgstr "Aplicações Visíveis Específicas"
+
+#. module: restrict_user_discuss
+#: model:ir.model.fields,help:restrict_user_discuss.field_res_users__specific_visible_app_ids
+msgid "Specific apps allowed for this user, in addition to those from their groups."
+msgstr "Aplicações específicas permitidas para este utilizador. Se configurado, o utilizador terá acesso estrito APENAS às aplicações aqui selecionadas, sobrepondo restrições de grupos."
+
+#. module: restrict_user_discuss
+#: model:ir.model.fields,field_description:restrict_user_discuss.field_res_users__allowed_app_ids
+msgid "Allowed Applications"
+msgstr "Aplicações Permitidas (Resumo)"
+
+#. module: restrict_user_discuss
+#: model:ir.model.fields,help:restrict_user_discuss.field_res_users__allowed_app_ids
+msgid "Aggregated list of applications the user is allowed to see based on their groups and specific selection."
+msgstr "Lista consolidada de aplicações principais que o utilizador tem permissão para visualizar."
+
+#. module: restrict_user_discuss
+#: model:ir.model.fields,field_description:restrict_user_discuss.field_res_groups__visible_app_ids
+msgid "Visible Applications"
+msgstr "Aplicações Visíveis"
+
+#. module: restrict_user_discuss
+#: model:ir.model.fields,help:restrict_user_discuss.field_res_groups__visible_app_ids
+msgid "Select which applications should remain visible for users in this group. If any apps are selected, all other main apps will be hidden."
+msgstr "Selecione quais as aplicações principais que devem ficar visíveis para os utilizadores deste grupo. Se alguma aplicação for selecionada, todas as outras aplicações principais ficarão ocultas para este grupo."
