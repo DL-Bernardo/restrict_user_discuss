@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1">
-        <record id="module_category_app_access" model="ir.module.category">
-            <field name="name">Application Access Control</field>
-            <field name="description">User groups for controlling application visibility.</field>
-            <field name="sequence">20</field>
-        </record>
-
         <record id="group_hide_modules_user" model="res.groups">
             <field name="name">Example: Restricted to Discuss</field>
-            <field name="category_id" ref="module_category_app_access"/>
             <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
             <field name="comment">This is an example group. Users in this group will only see the applications selected in the 'Visible Applications' field. By default, the Discuss app is selected.</field>
         </record>
