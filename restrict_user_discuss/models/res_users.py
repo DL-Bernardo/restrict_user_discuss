@@ -21,7 +21,7 @@ class ResUsers(models.Model):
         help="Aggregated list of applications the user is allowed to see based on their groups and specific selection."
     )
 
-    @api.depends('groups_id.visible_app_ids', 'groups_id', 'specific_visible_app_ids')
+    @api.depends('group_ids.visible_app_ids', 'group_ids', 'specific_visible_app_ids')
     def _compute_allowed_apps(self):
         all_main_menus = self.env['ir.ui.menu'].sudo().search([('parent_id', '=', False)])
 
@@ -37,7 +37,7 @@ class ResUsers(models.Model):
                 continue
 
             # 3. Priority 2: Restrictions configured on the user's Security Groups
-            user_groups = getattr(user, 'groups_id', self.env['res.groups'])
+            user_groups = getattr(user, 'group_ids', self.env['res.groups'])
             restricted_groups = user_groups.filtered(lambda g: g.visible_app_ids)
             if restricted_groups:
                 user.allowed_app_ids = restricted_groups.mapped('visible_app_ids')
