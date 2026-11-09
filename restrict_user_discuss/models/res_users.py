@@ -50,7 +50,8 @@ class ResUsers(models.Model):
     def create(self, vals_list):
         users = super(ResUsers, self).create(vals_list)
         if any(k in vals for vals in vals_list for k in ('specific_visible_app_ids', 'groups_id', 'group_ids')):
-            self.env['ir.ui.menu'].clear_caches()
+            if hasattr(self.env['ir.ui.menu'], 'clear_caches'):
+                self.env['ir.ui.menu'].clear_caches()
             if hasattr(self.env.registry, 'clear_cache'):
                 self.env.registry.clear_cache()
         return users
@@ -58,7 +59,8 @@ class ResUsers(models.Model):
     def write(self, vals):
         res = super(ResUsers, self).write(vals)
         if any(k in vals for k in ('specific_visible_app_ids', 'groups_id', 'group_ids')):
-            self.env['ir.ui.menu'].clear_caches()
+            if hasattr(self.env['ir.ui.menu'], 'clear_caches'):
+                self.env['ir.ui.menu'].clear_caches()
             if hasattr(self.env.registry, 'clear_cache'):
                 self.env.registry.clear_cache()
         return res
