@@ -32,7 +32,7 @@
         'security/user_groups.xml',
         'views/res_groups_views.xml',
         'views/res_users_views.xml',
-        'views/hide_menus.xml',
+        'security/ir.access.csv',
     ],
 
     'images': [

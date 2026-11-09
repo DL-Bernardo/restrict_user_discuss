@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+rule_restrict_user_applications,Restrict Applications based on User Groups,ir.ui.menu,base.group_user,r,"['|', ('parent_id', '!=', False), ('id', 'in', user.allowed_app_ids.ids)]"
