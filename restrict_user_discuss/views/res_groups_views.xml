@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="base.view_groups_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='users']" position="before">
-                <field name="visible_app_ids" widget="many2many_tags" placeholder="ex: Vendas, Faturação, etc."/>
+                <field name="visible_app_ids" widget="many2many_tags" placeholder="e.g. Sales, Invoicing, Discuss..."/>
             </xpath>
         </field>
     </record>

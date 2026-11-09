@@ -1,10 +1,10 @@
 # Restrict User Applications & Menu Access Control (`restrict_user_discuss`)
 
-![Version](https://img.shields.io/badge/Odoo-17.0-875A7B.svg?style=flat-square)
+![Version](https://img.shields.io/badge/Odoo-15.0%20%7C%2016.0%20%7C%2017.0%20%7C%2018.0%20%7C%2019.0%20%7C%2020.0-875A7B.svg?style=flat-square)
 ![License](https://img.shields.io/badge/License-OPL--1-blue.svg?style=flat-square)
 ![Author](https://img.shields.io/badge/Author-DIGITALUB%20ANGOLA-1259C3.svg?style=flat-square)
 
-Enterprise-grade application and root menu visibility control for **Odoo 17.0 (Community & Enterprise)**. Eliminate menu clutter and enforce strict workspace boundaries per security group or individual user without restarting the Odoo server.
+Enterprise-grade application and root menu visibility control for **Odoo 15.0, 16.0, 17.0, 18.0, 19.0 & 20.0 (Community & Enterprise)**. Eliminate menu clutter and enforce strict workspace boundaries per security group or individual user without restarting the Odoo server.
 
 ---
 
@@ -36,10 +36,6 @@ Enterprise-grade application and root menu visibility control for **Odoo 17.0 (C
 ## Technical Information
 
 - **Technical Name:** `restrict_user_discuss`
-- **Version:** `17.0.2.1.0`
+- **Supported Versions:** `15.0` • `16.0` • `17.0` • `18.0` • `19.0` • `20.0`
 - **Price:** `$29.00 USD`
-- **License:** `OPL-1` (Odoo Proprietary License v1.0)
-- **Dependencies:** `base`, `mail`
-- **Author:** DIGITALUB ANGOLA, LDA
-- **Website:** [https://www.digitalub.ao](https://www.digitalub.ao)
-- **Technical Support:** [suporte@digitalub.ao](mailto:suporte@digitalub.ao)
+- **Support:** `suporte@digitalub.ao` | [https://www.digitalub.ao](https://www.digitalub.ao)

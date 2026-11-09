@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api
 
+
 class ResUsers(models.Model):
     _inherit = 'res.users'
 
@@ -8,56 +9,56 @@ class ResUsers(models.Model):
         'ir.ui.menu',
         'res_users_visible_menus_rel',
         'user_id', 'menu_id',
-        string='Aplicações Visíveis Específicas',
+        string='Specific Visible Applications',
         domain=[('parent_id', '=', False)],
-        help="Aplicações específicas permitidas para este utilizador. Se configurado, o utilizador terá acesso estrito APENAS às aplicações aqui selecionadas, sobrepondo restrições de grupos."
+        help="Specific apps allowed for this user, in addition to those from their groups."
     )
 
     allowed_app_ids = fields.Many2many(
         'ir.ui.menu',
-        string='Aplicações Permitidas (Resumo)',
+        string='Allowed Applications',
         compute='_compute_allowed_apps',
-        help="Lista consolidada de aplicações principais que o utilizador tem permissão para visualizar."
+        help="Aggregated list of applications the user is allowed to see based on their groups and specific selection."
     )
 
     @api.depends('groups_id.visible_app_ids', 'groups_id', 'specific_visible_app_ids')
     def _compute_allowed_apps(self):
-        # Busca todos os menus raiz com sudo()
         all_main_menus = self.env['ir.ui.menu'].sudo().search([('parent_id', '=', False)])
-        
+
         for user in self:
-            # 1. Superuser raiz (ID 1 - __system__) tem sempre acesso a tudo
+            # 1. Root Superuser (ID 1 - __system__) always retains full unrestricted access
             if user.id == 1:
                 user.allowed_app_ids = all_main_menus
                 continue
 
-            # 2. Prioridade 1: Configuração Específica do Utilizador (Override Estrito)
-            # Se o administrador definiu aplicações específicas para este utilizador, respeita estritamente essa lista
+            # 2. Priority 1: Individual User Specific Configuration (Strict Override)
             if user.specific_visible_app_ids:
                 user.allowed_app_ids = user.specific_visible_app_ids
                 continue
 
-            # 3. Prioridade 2: Restrições configuradas nos Grupos do utilizador
-            restricted_groups = user.groups_id.filtered(lambda g: g.visible_app_ids)
+            # 3. Priority 2: Restrictions configured on the user's Security Groups
+            user_groups = getattr(user, 'groups_id', self.env['res.groups'])
+            restricted_groups = user_groups.filtered(lambda g: g.visible_app_ids)
             if restricted_groups:
                 user.allowed_app_ids = restricted_groups.mapped('visible_app_ids')
                 continue
 
-            # 4. Sem restrições específicas ou de grupo: exibe todas as aplicações
+            # 4. No specific or group restrictions: display all root applications
             user.allowed_app_ids = all_main_menus
 
     @api.model_create_multi
     def create(self, vals_list):
         users = super(ResUsers, self).create(vals_list)
-        if any('specific_visible_app_ids' in vals or 'groups_id' in vals for vals in vals_list):
+        if any(k in vals for vals in vals_list for k in ('specific_visible_app_ids', 'groups_id', 'group_ids')):
             self.env['ir.ui.menu'].clear_caches()
-            self.env.registry.clear_cache()
+            if hasattr(self.env.registry, 'clear_cache'):
+                self.env.registry.clear_cache()
         return users
 
     def write(self, vals):
         res = super(ResUsers, self).write(vals)
-        if 'specific_visible_app_ids' in vals or 'groups_id' in vals:
+        if any(k in vals for k in ('specific_visible_app_ids', 'groups_id', 'group_ids')):
             self.env['ir.ui.menu'].clear_caches()
-            self.env.registry.clear_cache()
+            if hasattr(self.env.registry, 'clear_cache'):
+                self.env.registry.clear_cache()
         return res
-

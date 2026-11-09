@@ -6,9 +6,9 @@
         <field name="inherit_id" ref="base.view_users_form"/>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='access_rights']" position="inside">
-                <group string="Controlo de Visibilidade de Aplicações" groups="base.group_system">
-                    <field name="specific_visible_app_ids" widget="many2many_tags" placeholder="Selecione as aplicações permitidas para este utilizador..."/>
-                    <field name="allowed_app_ids" widget="many2many_tags" readonly="1" string="Aplicações Finais Permitidas (Resumo)"/>
+                <group string="Application Visibility Control" groups="base.group_system">
+                    <field name="specific_visible_app_ids" widget="many2many_tags" placeholder="Select specific applications allowed for this user..."/>
+                    <field name="allowed_app_ids" widget="many2many_tags" readonly="1" string="Final Allowed Applications (Summary)"/>
                 </group>
             </xpath>
         </field>

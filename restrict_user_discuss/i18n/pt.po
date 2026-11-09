@@ -22,7 +22,6 @@ msgid "Application Access Control"
 msgstr "Controlo de Acesso a Aplicações"
 
 #. module: restrict_user_discuss
-#: model:ir.module.category,name:restrict_user_discuss.module_category_app_access
 #: model:ir.module.category,description:restrict_user_discuss.module_category_app_access
 msgid "User groups for controlling application visibility."
 msgstr "Grupos de utilizadores para controlo e restrição de visibilidade de aplicações."
@@ -66,3 +65,23 @@ msgstr "Aplicações Visíveis"
 #: model:ir.model.fields,help:restrict_user_discuss.field_res_groups__visible_app_ids
 msgid "Select which applications should remain visible for users in this group. If any apps are selected, all other main apps will be hidden."
 msgstr "Selecione quais as aplicações principais que devem ficar visíveis para os utilizadores deste grupo. Se alguma aplicação for selecionada, todas as outras aplicações principais ficarão ocultas para este grupo."
+
+#. module: restrict_user_discuss
+#: model_terms:ir.ui.view,arch_db:restrict_user_discuss.view_groups_form_inherit_restrict_apps
+msgid "e.g. Sales, Invoicing, Discuss..."
+msgstr "ex: Vendas, Faturação, Conversas..."
+
+#. module: restrict_user_discuss
+#: model_terms:ir.ui.view,arch_db:restrict_user_discuss.view_users_form_inherit_restrict_apps
+msgid "Application Visibility Control"
+msgstr "Controlo de Visibilidade de Aplicações"
+
+#. module: restrict_user_discuss
+#: model_terms:ir.ui.view,arch_db:restrict_user_discuss.view_users_form_inherit_restrict_apps
+msgid "Select specific applications allowed for this user..."
+msgstr "Selecione as aplicações permitidas para este utilizador..."
+
+#. module: restrict_user_discuss
+#: model_terms:ir.ui.view,arch_db:restrict_user_discuss.view_users_form_inherit_restrict_apps
+msgid "Final Allowed Applications (Summary)"
+msgstr "Aplicações Finais Permitidas (Resumo)"

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Restrict User Applications & Menu Access Control',
-    'version': '17.0.2.1.0',
+    'version': '17.0.2.1.1',
     'summary': 'Role-Based & User-Specific Application Visibility, Menu Restriction & Instant Cache Refresh',
     'description': """
-        Enterprise-Grade Application & Root Menu Visibility Control for Odoo 17 Community & Enterprise.
+        Enterprise-Grade Application & Root Menu Visibility Control for Odoo Community & Enterprise.
         - Role-Based Application Whitelisting per Security Group (visible_app_ids).
         - Strict Individual User Override (specific_visible_app_ids) with top priority.
         - Dedicated Technical Support Profile (grant Settings access while hiding the Apps Store menu).
@@ -37,6 +37,9 @@
 
     'images': [
         'static/description/banner.png',
+        'static/description/step1_group_apps.png',
+        'static/description/step2_user_override.png',
+        'static/description/step3_clean_menu.png',
     ],
     'installable': True,
     'application': False,
