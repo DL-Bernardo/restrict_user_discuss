@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Restrict User Applications & Menu Access Control',
-    'version': '17.0.2.1.1',
+    'version': '16.0.2.1.1',
     'summary': 'Role-Based & User-Specific Application Visibility, Menu Restriction & Instant Cache Refresh',
     'description': """
         Enterprise-Grade Application & Root Menu Visibility Control for Odoo Community & Enterprise.
